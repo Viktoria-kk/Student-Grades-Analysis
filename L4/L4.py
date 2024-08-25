@@ -37,4 +37,4 @@ for grade in max_grade:
 
 for stud in students:
     if stud[1] < 51:
-        print(fstud[0], stud[1])
+        print(stud[0], stud[1])
