@@ -1,10 +1,27 @@
+from random import *
 
-def apply_operation(numbers, operation):
-    return [operation(number) for number in numbers if operation(number) is not None]
+print("Welcome to the Simple Multiplication Quiz! "
+      "\nYou will be given 5 multiplication problems to solve.\n")
 
+score = 0
+for n in range (1,6):
+    while True:
+        try:
+            a, b = randint(1, 10), randint(1, 10)
+            print(f"problem {n}: What is {a} x {b}?")
+            user_input = int(input("Your answer: "))
 
-list = [1, 2, 3, 4, 5]
-print(f"Input: {list}  Doubled: {apply_operation(list, lambda n: n * 2)}")
-print(f"Input: {list}  Squared: {apply_operation(list, lambda num: num ** 2)}")
-print(f"Input: {list}  Odd Numbers: {apply_operation(list,lambda number: number if number % 2 != 0 else None)}")
+            if user_input == a * b:
+                print("Correct!\n")
+                score += 1
+                break
+            else:
+                print(f"Incorrect! The correct answer was {a * b}\n")
+                break
+        except ValueError:
+            print("Please enter a number!\n")
 
+if score <= 3:
+    print(f"\nYou scored {score} out of {n}. You need to practice more!")
+else:
+    print(f"\nYou scored {score} out of {n}. Well done!")
